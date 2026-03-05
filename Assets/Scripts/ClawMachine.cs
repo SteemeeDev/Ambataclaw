@@ -5,6 +5,8 @@ using UnityEngine;
 public class ClawMachine : MonoBehaviour
 {
     [SerializeField] Transform clawModel;
+    [SerializeField] ClawHandler claw;
+
     [SerializeField] float clawSpeed = 0.1f;
     [SerializeField] float clawYSensitivity = 1f;
 
@@ -20,17 +22,36 @@ public class ClawMachine : MonoBehaviour
 
     [SerializeField] CameraMove cameraMove;
 
+    bool moveAxis;
+
     // Update is called once per frame
     void Update()
     {
-        float inputZ = Input.GetAxisRaw("Horizontal");
-        float inputX = Input.GetAxisRaw("Vertical");
+        if (Input.GetMouseButtonDown(0))
+        {
+            moveAxis = !moveAxis;
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (!claw.clawIsAnimating)
+            {
+                if (claw.clawOpen) claw.openingRoutine = StartCoroutine(claw.IEcloseClaw());
+                else               claw.openingRoutine = StartCoroutine(claw.IEopenClaw());
+            }
+        }
+
+        float mouseX = Input.GetAxisRaw("Mouse X");
         float mouseY = Input.GetAxisRaw("Mouse Y");
 
-
-        xlerp -= inputX * Time.deltaTime * clawSpeed;
-        zlerp += inputZ * Time.deltaTime * clawSpeed;
-        ylerp -= mouseY * Time.deltaTime * clawYSensitivity;
+        if (!moveAxis && ylerp < 0.1f)
+        {
+            xlerp -= mouseY * Time.deltaTime * clawSpeed;
+            zlerp += mouseX * Time.deltaTime * clawSpeed;
+        }
+        else
+        {
+            ylerp -= mouseY * Time.deltaTime * clawYSensitivity;
+        }
 
         xlerp = Mathf.Clamp01(xlerp);
         ylerp = Mathf.Clamp01(ylerp);
