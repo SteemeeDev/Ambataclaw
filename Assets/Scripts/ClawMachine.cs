@@ -22,15 +22,25 @@ public class ClawMachine : MonoBehaviour
 
     [SerializeField] CameraMove cameraMove;
 
-    bool moveAxis;
+    bool moveVertical;
+    bool a;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (ylerp >= 0.1f) a = true;
+
+        if (Input.GetMouseButtonDown(0) && ylerp < 0.1f)
         {
-            moveAxis = !moveAxis;
+            moveVertical = true;
         }
+        else if (ylerp < 0.1f && a == true)
+        {
+            moveVertical = false;
+            a = false;
+        }
+
+
         if (Input.GetMouseButtonDown(1))
         {
             if (!claw.clawIsAnimating)
@@ -43,12 +53,12 @@ public class ClawMachine : MonoBehaviour
         float mouseX = Input.GetAxisRaw("Mouse X");
         float mouseY = Input.GetAxisRaw("Mouse Y");
 
-        if (!moveAxis && ylerp < 0.1f)
+        if (!moveVertical)
         {
             xlerp -= mouseY * Time.deltaTime * clawSpeed;
             zlerp += mouseX * Time.deltaTime * clawSpeed;
         }
-        else
+        else if (moveVertical)
         {
             ylerp -= mouseY * Time.deltaTime * clawYSensitivity;
         }

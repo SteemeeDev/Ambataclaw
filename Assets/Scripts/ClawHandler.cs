@@ -26,7 +26,7 @@ public class ClawHandler : MonoBehaviour
             Rigidbody rigidbody = HeldItem.gameObject.GetComponent<Rigidbody>();
             if (rigidbody != null)
             {
-                rigidbody.AddForce((grabPoint.position - HeldItem.transform.position).normalized * 20);
+                rigidbody.AddForce((grabPoint.position - HeldItem.transform.position) * 20);
             }
         }
     }
