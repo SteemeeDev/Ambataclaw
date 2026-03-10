@@ -441,6 +441,37 @@ LightingSettings:
   m_PVRTiledBaking: 0
   m_NumRaysToShootPerTexel: -1
   m_RespectSceneVisibilityWhenBakingGI: 0
+--- !u!1 &280520285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 280520286}
+  m_Layer: 0
+  m_Name: RopeStartPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &280520286
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280520285}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.472, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1544806109}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &342440591
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,12 +608,18 @@ MonoBehaviour:
   clawYSensitivity: 5
   clawBound1: {fileID: 1710940430}
   clawBound2: {fileID: 193978338}
-  clawBoundY1: {fileID: 1861402646}
+  clawBoundY1: {fileID: 1506416719}
   clawBoundY2: {fileID: 873219079}
   xlerp: 0
   ylerp: 0
   zlerp: 0
   cameraMove: {fileID: 1763458226}
+--- !u!1 &431118324 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4c25db8917382694480d62531efc6701,
+    type: 3}
+  m_PrefabInstance: {fileID: 538217312}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &431981330 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1246043654740582524, guid: b84db1c093cdb0c4a8874256d1ccbba4,
@@ -881,8 +918,20 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4c25db8917382694480d62531efc6701,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 280520286}
+    - targetCorrespondingSourceObject: {fileID: 2190065467422025268, guid: 4c25db8917382694480d62531efc6701,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 785697492}
+    - targetCorrespondingSourceObject: {fileID: 2190065467422025268, guid: 4c25db8917382694480d62531efc6701,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 628716264}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4c25db8917382694480d62531efc6701,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1544806110}
     - targetCorrespondingSourceObject: {fileID: -4694704496377697361, guid: 4c25db8917382694480d62531efc6701,
         type: 3}
       insertIndex: -1
@@ -1034,6 +1083,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8669842845558910407, guid: b84db1c093cdb0c4a8874256d1ccbba4, type: 3}
+--- !u!1 &628716263
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 628716264}
+  m_Layer: 0
+  m_Name: RopeEndPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &628716264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628716263}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00467}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 927150023}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &685922552
 GameObject:
   m_ObjectHideFlags: 0
@@ -1467,12 +1547,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 785697491}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.121, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.34819603, y: -0.61543447, z: -0.61543435, w: -0.34819606}
+  m_LocalPosition: {x: 0, y: 0, z: -0.01121}
+  m_LocalScale: {x: 0.010000003, y: 0.01, z: 0.010000003}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1544806109}
+  m_Father: {fileID: 927150023}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &795734787 stripped
 GameObject:
@@ -1607,6 +1687,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d050453d27c267439c46ed1590562e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ropeRenderer: {fileID: 1544806110}
+  ropeStartPoint: {fileID: 280520286}
+  ropeEndPoint: {fileID: 628716264}
   clawRenderer: {fileID: 927150022}
   grabPoint: {fileID: 785697492}
   closeTime: 0.5
@@ -1619,6 +1702,12 @@ MonoBehaviour:
 --- !u!137 &927150022 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 9152859872289076295, guid: 4c25db8917382694480d62531efc6701,
+    type: 3}
+  m_PrefabInstance: {fileID: 538217312}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &927150023 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2190065467422025268, guid: 4c25db8917382694480d62531efc6701,
     type: 3}
   m_PrefabInstance: {fileID: 538217312}
   m_PrefabAsset: {fileID: 0}
@@ -2351,7 +2440,7 @@ Transform:
   m_GameObject: {fileID: 1506416718}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.0120000895, y: 5.948, z: 0.03299713}
+  m_LocalPosition: {x: -0.0120000895, y: 4.917, z: 0.03299713}
   m_LocalScale: {x: 1.1999997, y: 1.1999999, z: 1.1999997}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2394,6 +2483,110 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 538217312}
   m_PrefabAsset: {fileID: 0}
+--- !u!120 &1544806110
+LineRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431118324}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.08
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 0.08627451, g: 0, b: 0.38823533, a: 1}
+      key1: {r: 0.08627451, g: 0, b: 0.43921572, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    textureScale: {x: 1, y: 1}
+    shadowBias: 0.5
+    generateLightingData: 1
+  m_MaskInteraction: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0
+  m_ApplyActiveColorSpace: 1
 --- !u!1001 &1613126698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4667,6 +4860,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d050453d27c267439c46ed1590562e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ropeRenderer: {fileID: 0}
+  ropeStartPoint: {fileID: 0}
+  ropeEndPoint: {fileID: 0}
   clawRenderer: {fileID: 6983647681812670370}
   grabPoint: {fileID: 1507188445}
   closeTime: 0.5

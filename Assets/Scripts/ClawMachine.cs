@@ -23,21 +23,21 @@ public class ClawMachine : MonoBehaviour
     [SerializeField] CameraMove cameraMove;
 
     bool moveVertical;
-    bool a;
+    bool hasMovedDown;
 
     // Update is called once per frame
     void Update()
     {
-        if (ylerp >= 0.1f) a = true;
+        if (ylerp >= 0.1f) hasMovedDown = true;
 
         if (Input.GetMouseButtonDown(0) && ylerp < 0.1f)
         {
             moveVertical = true;
         }
-        else if (ylerp < 0.1f && a == true)
+        else if (ylerp < 0.1f && hasMovedDown == true)
         {
             moveVertical = false;
-            a = false;
+            hasMovedDown = false;
         }
 
 
@@ -67,12 +67,17 @@ public class ClawMachine : MonoBehaviour
         ylerp = Mathf.Clamp01(ylerp);
         zlerp = Mathf.Clamp01(zlerp);
 
-        clawModel.transform.position = new Vector3( 
+        clawModel.transform.position = new Vector3(
             Mathf.Lerp(clawBound1.position.x, clawBound2.position.x, xlerp),
-            Mathf.Lerp(clawBoundY1.position.y, clawBoundY2.position.y, ylerp),
+            clawBoundY1.position.y,
             Mathf.Lerp(clawBound1.position.z, clawBound2.position.z, zlerp)
         );
 
 
+        claw.transform.position = new Vector3(
+            Mathf.Lerp(clawBound1.position.x, clawBound2.position.x, xlerp),
+            Mathf.Lerp(clawBoundY1.position.y, clawBoundY2.position.y, ylerp),
+            Mathf.Lerp(clawBound1.position.z, clawBound2.position.z, zlerp)
+        );
     }
 }

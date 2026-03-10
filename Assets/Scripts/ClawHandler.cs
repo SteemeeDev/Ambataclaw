@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ClawHandler : MonoBehaviour
 {
+    [SerializeField] LineRenderer ropeRenderer;
+    [SerializeField] Transform ropeStartPoint;
+    [SerializeField] Transform ropeEndPoint;
     [SerializeField] SkinnedMeshRenderer clawRenderer;
     [SerializeField] Transform grabPoint;
     [SerializeField] float closeTime = 0.5f;
@@ -19,6 +22,11 @@ public class ClawHandler : MonoBehaviour
 
     float elapsed;
 
+    private void Start()
+    {
+        ropeRenderer.positionCount = 2;
+    }
+
     private void FixedUpdate()
     {
         if (HeldItem != null)
@@ -31,6 +39,16 @@ public class ClawHandler : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        UpdateRopeRenderer();
+    }
+
+    void UpdateRopeRenderer()
+    {
+        ropeRenderer.SetPosition(0, ropeStartPoint.position);
+        ropeRenderer.SetPosition(1, ropeEndPoint.position);
+    }
     public void GrabObject()
     {
         if (grabPoint == null) return;
