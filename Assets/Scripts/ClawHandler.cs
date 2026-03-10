@@ -7,6 +7,7 @@ public class ClawHandler : MonoBehaviour
     [SerializeField] LineRenderer ropeRenderer;
     [SerializeField] Transform ropeStartPoint;
     [SerializeField] Transform ropeEndPoint;
+    [SerializeField] float grabForce = 1f;
     [SerializeField] SkinnedMeshRenderer clawRenderer;
     [SerializeField] Transform grabPoint;
     [SerializeField] float closeTime = 0.5f;
@@ -27,14 +28,16 @@ public class ClawHandler : MonoBehaviour
         ropeRenderer.positionCount = 2;
     }
 
+    float distToPlush;
     private void FixedUpdate()
     {
         if (HeldItem != null)
         {
+            distToPlush = Vector3.Distance(grabPoint.position, HeldItem.transform.position);
             Rigidbody rigidbody = HeldItem.gameObject.GetComponent<Rigidbody>();
             if (rigidbody != null)
             {
-                rigidbody.AddForce((grabPoint.position - HeldItem.transform.position) * 20);
+                HeldItem.transform.position = Vector3.MoveTowards(HeldItem.transform.position, grabPoint.position, grabForce * Time.fixedDeltaTime);
             }
         }
     }
@@ -53,7 +56,7 @@ public class ClawHandler : MonoBehaviour
     {
         if (grabPoint == null) return;
 
-        Collider[] hitObjects = Physics.OverlapSphere(grabPoint.position, 1f, PlushiesLayer);
+        Collider[] hitObjects = Physics.OverlapSphere(grabPoint.position, 0.3f, PlushiesLayer);
 
         foreach (Collider hitObject in hitObjects)
         {
@@ -72,7 +75,7 @@ public class ClawHandler : MonoBehaviour
         {
             elapsed += Time.deltaTime;
 
-            float blend = Mathf.Lerp(0f, 100f, elapsed / closeTime);
+            float blend = Mathf.Lerp(0f, 200f, elapsed / closeTime);
 
             clawRenderer.SetBlendShapeWeight(0, blend);
 
@@ -88,13 +91,13 @@ public class ClawHandler : MonoBehaviour
         clawIsAnimating = true;
         clawOpen = true;
 
-        elapsed = 1f;
+        elapsed = closeTime;
 
-        while (elapsed > 0)
+        while (elapsed >= 0)
         {
             elapsed -= Time.deltaTime;
 
-            float blend = Mathf.Lerp(0f, 100f, elapsed / closeTime);
+            float blend = Mathf.Lerp(0f, 200f, elapsed / closeTime);
 
             clawRenderer.SetBlendShapeWeight(0, blend);
 
