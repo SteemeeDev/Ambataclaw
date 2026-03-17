@@ -862,7 +862,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.08
+        value: 0.05
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -874,8 +874,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.3803922, g: 0.39607847, b: 0.427451, a: 1}
-      key1: {r: 0.24313727, g: 0.24313727, b: 0.28627452, a: 1}
+      key0: {r: 0.21446788, g: 0.22331193, b: 0.241, a: 1}
+      key1: {r: 0.14098631, g: 0.14098631, b: 0.16600001, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1779,7 +1779,7 @@ MonoBehaviour:
   ropeRenderer: {fileID: 692393991}
   ropeStartPoint: {fileID: 998924820}
   ropeEndPoint: {fileID: 628716264}
-  grabForce: 1
+  grabForce: 5
   clawRenderer: {fileID: 9152859872479639227}
   grabPoint: {fileID: 785697492}
   closeTime: 0.5

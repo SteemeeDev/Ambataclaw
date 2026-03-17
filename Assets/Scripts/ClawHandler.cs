@@ -34,11 +34,8 @@ public class ClawHandler : MonoBehaviour
         if (HeldItem != null)
         {
             distToPlush = Vector3.Distance(grabPoint.position, HeldItem.transform.position);
-            Rigidbody rigidbody = HeldItem.gameObject.GetComponent<Rigidbody>();
-            if (rigidbody != null)
-            {
-                HeldItem.transform.position = Vector3.MoveTowards(HeldItem.transform.position, grabPoint.position, grabForce * Time.fixedDeltaTime);
-            }
+
+            HeldItem.transform.position = Vector3.MoveTowards(HeldItem.transform.position, grabPoint.position, grabForce * Time.fixedDeltaTime);
         }
     }
 
@@ -62,6 +59,8 @@ public class ClawHandler : MonoBehaviour
         {
             HeldItem = hitObject;
         }
+
+        HeldItem.GetComponent<Rigidbody>().isKinematic = true;
     }
 
     public IEnumerator IEcloseClaw()
@@ -106,6 +105,7 @@ public class ClawHandler : MonoBehaviour
 
         clawIsAnimating = false;
 
+        HeldItem.GetComponent<Rigidbody>().isKinematic = false; 
         HeldItem = null;
     }
 }
