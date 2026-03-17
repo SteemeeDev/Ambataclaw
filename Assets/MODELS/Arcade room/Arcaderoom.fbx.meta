@@ -3,7 +3,72 @@ guid: eaf80a0f1dded7944a5c4f2702a3c578
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kabinet
+    second: {fileID: 2100000, guid: 2862c256165f8404997667bf214904df, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Knap
+    second: {fileID: 2100000, guid: e1ce49fc349973b4fb04bcfec732f09c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: e6521458d813f8e41884899a8594307a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: c00a6b66e9e3d924686a7ec2938498fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: 0fd70357b05541b49815b702d483118f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: 23682ab5f84b68c409d1d6a5a2148cc7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "bl\xE5"
+    second: {fileID: 2100000, guid: a865cebbc142d5e43a6947d9608bb4ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glas
+    second: {fileID: 2100000, guid: 78ceafeb955fbc047ad7d016a209a910, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gul
+    second: {fileID: 2100000, guid: c0033a084e7edff4090f1c4692ee1fc4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal
+    second: {fileID: 2100000, guid: f2a15e5f07cc9074792cb166565fb5dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "m\xF8rkelilla"
+    second: {fileID: 2100000, guid: f8f40a107d0cac84cba9c93d8d3f2ccc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pink
+    second: {fileID: 2100000, guid: fefd54e2528d27e41b51f35264443bfd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sort
+    second: {fileID: 2100000, guid: f865cc5ea918fd64a97e4ec063a2acab, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -35,7 +100,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.75
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -53,7 +118,7 @@ ModelImporter:
     keepQuads: 0
     weldVertices: 1
     bakeAxisConversion: 0
-    preserveHierarchy: 0
+    preserveHierarchy: 1
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
@@ -90,7 +155,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.75
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
