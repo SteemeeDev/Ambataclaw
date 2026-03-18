@@ -20,10 +20,14 @@ public class ClawMachine : MonoBehaviour
     [SerializeField] float ylerp = 0f;
     [SerializeField] float zlerp = 0f;
 
-    [SerializeField] CameraMove cameraMove;
 
     bool moveVertical;
     bool hasMovedDown;
+
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 
     // Update is called once per frame
     void Update()

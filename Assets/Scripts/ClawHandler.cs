@@ -11,6 +11,7 @@ public class ClawHandler : MonoBehaviour
     [SerializeField] SkinnedMeshRenderer clawRenderer;
     [SerializeField] Transform grabPoint;
     [SerializeField] float closeTime = 0.5f;
+    [SerializeField] float letGoDist = 0.5f;
 
     [SerializeField] LayerMask PlushiesLayer;
 
@@ -35,7 +36,17 @@ public class ClawHandler : MonoBehaviour
         {
             distToPlush = Vector3.Distance(grabPoint.position, HeldItem.transform.position);
 
-            HeldItem.transform.position = Vector3.MoveTowards(HeldItem.transform.position, grabPoint.position, grabForce * Time.fixedDeltaTime);
+            if (distToPlush <= letGoDist)
+            {
+
+                HeldItem.GetComponent<Rigidbody>().isKinematic = true;
+                HeldItem.transform.position = Vector3.MoveTowards(HeldItem.transform.position, grabPoint.position, grabForce * Time.fixedDeltaTime);
+            }
+            else
+            {
+                HeldItem.GetComponent<Rigidbody>().isKinematic = false;
+                HeldItem = null;
+            }
         }
     }
 
@@ -53,14 +64,12 @@ public class ClawHandler : MonoBehaviour
     {
         if (grabPoint == null) return;
 
-        Collider[] hitObjects = Physics.OverlapSphere(grabPoint.position, 0.3f, PlushiesLayer);
+        Collider[] hitObjects = Physics.OverlapSphere(grabPoint.position, 0.4f, PlushiesLayer);
 
         foreach (Collider hitObject in hitObjects)
         {
             HeldItem = hitObject;
         }
-
-        HeldItem.GetComponent<Rigidbody>().isKinematic = true;
     }
 
     public IEnumerator IEcloseClaw()
@@ -105,7 +114,10 @@ public class ClawHandler : MonoBehaviour
 
         clawIsAnimating = false;
 
-        HeldItem.GetComponent<Rigidbody>().isKinematic = false; 
-        HeldItem = null;
+        if (HeldItem != null)
+        {
+            HeldItem.GetComponent<Rigidbody>().isKinematic = false; 
+            HeldItem = null;
+        }
     }
 }
