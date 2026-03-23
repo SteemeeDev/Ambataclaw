@@ -20,6 +20,8 @@ public class ClawMachine : MonoBehaviour
     [SerializeField] float ylerp = 0f;
     [SerializeField] float zlerp = 0f;
 
+    [SerializeField] CameraManager camManager;
+
 
     bool moveVertical;
     bool hasMovedDown;
@@ -32,6 +34,8 @@ public class ClawMachine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (camManager.camIndex != CameraManager.CameraPosition.ArcadeMachine) return;
+
         if (ylerp >= 0.1f) hasMovedDown = true;
 
         if (Input.GetMouseButtonDown(0) && ylerp < 0.1f)
