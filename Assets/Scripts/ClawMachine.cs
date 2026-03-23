@@ -81,7 +81,6 @@ public class ClawMachine : MonoBehaviour
             Mathf.Lerp(clawBound1.position.z, clawBound2.position.z, zlerp)
         );
 
-
         claw.transform.position = new Vector3(
             Mathf.Lerp(clawBound1.position.x, clawBound2.position.x, xlerp),
             Mathf.Lerp(clawBoundY1.position.y, clawBoundY2.position.y, ylerp),
