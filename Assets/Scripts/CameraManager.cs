@@ -18,14 +18,20 @@ public class CameraManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !turning)
+        if (!turning && Input.GetAxisRaw("Horizontal") != 0)
         {
-            if ((int)camIndex >= cameraPositions.Length-1) camIndex = 0;
-            else camIndex++;
+            camIndex += (int)Input.GetAxisRaw("Horizontal");
+
+            if ((int)camIndex >= cameraPositions.Length) camIndex = 0;
+            else if ((int)camIndex < 0) camIndex = CameraPosition.Arcade;
 
             StartCoroutine(TurnCamera(cameraPositions[(int)camIndex]));
         }
 
+    }
+
+    IEnumerator TurnCamera(Transform position)
+    {
         switch (camIndex)
         {
             case CameraPosition.ArcadeMachine:
@@ -38,10 +44,7 @@ public class CameraManager : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 break;
         }
-    }
 
-    IEnumerator TurnCamera(Transform position)
-    {
         turning = true;
         Quaternion lastRot = transform.rotation;
         Vector3 lastPos = transform.position;
