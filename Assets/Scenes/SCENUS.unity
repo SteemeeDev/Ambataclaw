@@ -241,7 +241,7 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1001 &1303474006
+--- !u!1001 &1567362071
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -252,17 +252,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8dd6b1f2a5a87374889b7722c1fb889c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -41.11588
+      value: -40.201042
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8dd6b1f2a5a87374889b7722c1fb889c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.03
+      value: 2.13
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8dd6b1f2a5a87374889b7722c1fb889c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.3283806
+      value: -11.5338545
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8dd6b1f2a5a87374889b7722c1fb889c,
         type: 3}
@@ -407,4 +407,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 1783318031}
   - {fileID: 349404191}
-  - {fileID: 1303474006}
+  - {fileID: 1567362071}
