@@ -11,6 +11,7 @@ public class ClawHandler : MonoBehaviour
     [SerializeField] SkinnedMeshRenderer clawRenderer;
     [SerializeField] Transform grabPoint;
     [SerializeField] float closeTime = 0.5f;
+    [SerializeField] float letGoDist = 0.3f;
 
     [SerializeField] LayerMask PlushiesLayer;
 
@@ -34,10 +35,16 @@ public class ClawHandler : MonoBehaviour
         if (HeldItem != null)
         {
             distToPlush = Vector3.Distance(grabPoint.position, HeldItem.transform.position);
-            Rigidbody rigidbody = HeldItem.gameObject.GetComponent<Rigidbody>();
-            if (rigidbody != null)
+
+            if (distToPlush <= letGoDist)
             {
                 HeldItem.transform.position = Vector3.MoveTowards(HeldItem.transform.position, grabPoint.position, grabForce * Time.fixedDeltaTime);
+                HeldItem.GetComponent<Rigidbody>().isKinematic = true;
+            }
+            else
+            {
+                HeldItem.GetComponent<Rigidbody>().isKinematic = false;
+                HeldItem = null;
             }
         }
     }
@@ -56,12 +63,18 @@ public class ClawHandler : MonoBehaviour
     {
         if (grabPoint == null) return;
 
-        Collider[] hitObjects = Physics.OverlapSphere(grabPoint.position, 0.3f, PlushiesLayer);
+        Collider[] hitObjects = Physics.OverlapSphere(grabPoint.position, letGoDist * 0.8f, PlushiesLayer);
+        Collider nearestObject = new Collider();
 
-        foreach (Collider hitObject in hitObjects)
+        for (int i = 0; i < hitObjects.Length; i++)
         {
-            HeldItem = hitObject;
+            Collider hitObject = hitObjects[i];
+            if (i == 0) nearestObject = hitObject;
+            else if (Vector3.Distance(grabPoint.position, hitObject.transform.position) < Vector3.Distance(grabPoint.position, nearestObject.transform.position))
+                nearestObject = hitObject;  
         }
+        HeldItem = nearestObject;
+        if (HeldItem != null) HeldItem.transform.position = grabPoint.position;
     }
 
     public IEnumerator IEcloseClaw()
@@ -106,6 +119,10 @@ public class ClawHandler : MonoBehaviour
 
         clawIsAnimating = false;
 
-        HeldItem = null;
+        if (HeldItem != null)
+        {
+            HeldItem.GetComponent<Rigidbody>().isKinematic = false; 
+            HeldItem = null;
+        }
     }
 }

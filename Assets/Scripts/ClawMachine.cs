@@ -20,14 +20,22 @@ public class ClawMachine : MonoBehaviour
     [SerializeField] float ylerp = 0f;
     [SerializeField] float zlerp = 0f;
 
-    [SerializeField] CameraMove cameraMove;
+    [SerializeField] CameraManager camManager;
+
 
     bool moveVertical;
     bool hasMovedDown;
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (camManager.camIndex != CameraManager.CameraPosition.ArcadeMachine) return;
+
         if (ylerp >= 0.1f) hasMovedDown = true;
 
         if (Input.GetMouseButtonDown(0) && ylerp < 0.1f)
@@ -72,7 +80,6 @@ public class ClawMachine : MonoBehaviour
             clawBoundY1.position.y,
             Mathf.Lerp(clawBound1.position.z, clawBound2.position.z, zlerp)
         );
-
 
         claw.transform.position = new Vector3(
             Mathf.Lerp(clawBound1.position.x, clawBound2.position.x, xlerp),
