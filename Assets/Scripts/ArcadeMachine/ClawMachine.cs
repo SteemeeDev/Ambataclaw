@@ -5,8 +5,8 @@ using UnityEngine;
 public class ClawMachine : MonoBehaviour
 {
     [SerializeField] Transform clawModel;
-    [SerializeField] ClawHandler claw;
-
+    
+    [Header("CLAW SETTINGS")]
     [SerializeField] float clawSpeed = 0.1f;
     [SerializeField] float clawYSensitivity = 1f;
 
@@ -20,7 +20,10 @@ public class ClawMachine : MonoBehaviour
     [SerializeField] float ylerp = 0f;
     [SerializeField] float zlerp = 0f;
 
+    [Header("HANDLERS")]
+    [SerializeField] ClawHandler clawHandler;
     [SerializeField] CameraManager camManager;
+    [SerializeField] ButtonHandler buttonHandler;
 
 
     bool moveVertical;
@@ -40,10 +43,12 @@ public class ClawMachine : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && ylerp < 0.1f)
         {
+            buttonHandler.StartCoroutine(buttonHandler.downButton.IEPressButton());
             moveVertical = true;
         }
         else if (ylerp < 0.1f && hasMovedDown == true)
         {
+            buttonHandler.StartCoroutine(buttonHandler.downButton.IEPressButton());
             moveVertical = false;
             hasMovedDown = false;
         }
@@ -51,10 +56,18 @@ public class ClawMachine : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            if (!claw.clawIsAnimating)
+            if (!clawHandler.clawIsAnimating)
             {
-                if (claw.clawOpen) claw.openingRoutine = StartCoroutine(claw.IEcloseClaw());
-                else               claw.openingRoutine = StartCoroutine(claw.IEopenClaw());
+                buttonHandler.StartCoroutine(buttonHandler.grabButton.IEPressButton());
+
+                if (clawHandler.clawOpen)
+                {
+                    clawHandler.openingRoutine = StartCoroutine(clawHandler.IEcloseClaw());
+                }
+                else
+                {
+                    clawHandler.openingRoutine = StartCoroutine(clawHandler.IEopenClaw());
+                }
             }
         }
 
@@ -65,7 +78,12 @@ public class ClawMachine : MonoBehaviour
         {
             xlerp -= mouseY * Time.deltaTime * clawSpeed;
             zlerp += mouseX * Time.deltaTime * clawSpeed;
-        }
+
+            if (mouseX != 0 || mouseY != 0)
+            {
+                buttonHandler.TurnJoyStick(new Vector2(mouseX, mouseY));
+            }
+        }                                          
         else if (moveVertical)
         {
             ylerp -= mouseY * Time.deltaTime * clawYSensitivity;
@@ -81,7 +99,7 @@ public class ClawMachine : MonoBehaviour
             Mathf.Lerp(clawBound1.position.z, clawBound2.position.z, zlerp)
         );
 
-        claw.transform.position = new Vector3(
+        clawHandler.transform.position = new Vector3(
             Mathf.Lerp(clawBound1.position.x, clawBound2.position.x, xlerp),
             Mathf.Lerp(clawBoundY1.position.y, clawBoundY2.position.y, ylerp),
             Mathf.Lerp(clawBound1.position.z, clawBound2.position.z, zlerp)

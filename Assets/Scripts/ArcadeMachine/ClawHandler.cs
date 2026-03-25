@@ -7,10 +7,12 @@ public class ClawHandler : MonoBehaviour
     [SerializeField] LineRenderer ropeRenderer;
     [SerializeField] Transform ropeStartPoint;
     [SerializeField] Transform ropeEndPoint;
-    [SerializeField] float grabForce = 1f;
     [SerializeField] SkinnedMeshRenderer clawRenderer;
     [SerializeField] Transform grabPoint;
-    [SerializeField] float closeTime = 0.5f;
+
+    [Header("Settings")]
+    [SerializeField] float grabForce = 1f;
+    [SerializeField] float closeTime = 0.3f;
     [SerializeField] float letGoDist = 0.3f;
 
     [SerializeField] LayerMask PlushiesLayer;

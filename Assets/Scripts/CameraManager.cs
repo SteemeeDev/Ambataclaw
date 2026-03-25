@@ -6,12 +6,14 @@ public class CameraManager : MonoBehaviour
 {
     [SerializeField] private Transform[] cameraPositions;
     [SerializeField] private float turnTime = 1f;
+    [SerializeField] ButtonHandler buttonHandler;
 
     public enum CameraPosition
     {
         ArcadeMachine,
         Pipe,
-        Arcade
+        Arcade,
+        Shelf
     }
     public CameraPosition camIndex;
     private bool turning;
@@ -23,7 +25,7 @@ public class CameraManager : MonoBehaviour
             camIndex += (int)Input.GetAxisRaw("Horizontal");
 
             if ((int)camIndex >= cameraPositions.Length) camIndex = 0;
-            else if ((int)camIndex < 0) camIndex = CameraPosition.Arcade;
+            else if ((int)camIndex < 0) camIndex = CameraPosition.Shelf;
 
             StartCoroutine(TurnCamera(cameraPositions[(int)camIndex]));
         }
@@ -36,11 +38,15 @@ public class CameraManager : MonoBehaviour
         {
             case CameraPosition.ArcadeMachine:
                 Cursor.lockState = CursorLockMode.Locked;
+                buttonHandler.StartCoroutine(buttonHandler.startButton.IEPressButton());
                 break;
             case CameraPosition.Pipe:
                 Cursor.lockState = CursorLockMode.None;
                 break;
             case CameraPosition.Arcade:
+                Cursor.lockState = CursorLockMode.None;
+                break;
+            case CameraPosition.Shelf:
                 Cursor.lockState = CursorLockMode.None;
                 break;
         }
