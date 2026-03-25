@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] Transform[] travelPoints;
+    [SerializeField] float travelSpeed = 1f;
+
+    float travelPercentage = 0f;
+
+    private void Update()
     {
-        
+        travelPercentage += travelSpeed * Time.deltaTime;
+        transform.position = Vector3.Lerp(travelPoints[0].position, travelPoints[1].position, travelPercentage / 100f);
     }
 }

@@ -3,7 +3,62 @@ guid: b84db1c093cdb0c4a8874256d1ccbba4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kabinet
+    second: {fileID: 2100000, guid: 1fe29e08ca7f5d04aa3713b14be4bf72, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Knap
+    second: {fileID: 2100000, guid: 14cc2fc32a6f45341bef25883bec7eb2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: e5e2cb35ea236cb489992b1c155a2055, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 630380e8ae0b2d247a1634ee0b8093ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "bl\xE5"
+    second: {fileID: 2100000, guid: 98d389a9b62185547b9a24ba39a317ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glas
+    second: {fileID: 2100000, guid: 07ba3224ce40c95498086084f4813e2e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gul
+    second: {fileID: 2100000, guid: 84deb2fe87f7e394da9db3d1311f4920, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal
+    second: {fileID: 2100000, guid: 9341cc5d60426074992112c5e2723b91, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "m\xF8rkelilla"
+    second: {fileID: 2100000, guid: 1fdec7bde33d2204b9bf7843eed9d0ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pink
+    second: {fileID: 2100000, guid: 83012f2f1297e174c915a877da0793bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sort
+    second: {fileID: 2100000, guid: bf6fd314d1a93df469d7dc17e2350272, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -90,7 +145,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.0075
+    globalScale: 0.75
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
