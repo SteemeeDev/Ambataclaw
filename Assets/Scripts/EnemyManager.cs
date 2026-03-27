@@ -5,6 +5,7 @@ public class EnemyManager : MonoBehaviour
 {
     [SerializeField] Transform[] travelPoints;
     [SerializeField] Renderer enemyRenderer;
+    [SerializeField] CameraManager camManager;
     [SerializeField] float maxTravelSpeed = 1f;
     float travelSpeed;
 

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    [SerializeField] private Transform[] cameraPositions;
+    public Transform[] cameraPositions;
     [SerializeField] private float turnTime = 1f;
     [SerializeField] ButtonHandler buttonHandler;
+
+    public bool holdSpecialCameraPosition;
 
     public enum CameraPosition
     {
@@ -20,7 +22,7 @@ public class CameraManager : MonoBehaviour
 
     private void Update()
     {
-        if (!turning && Input.GetAxisRaw("Horizontal") != 0)
+        if (!turning && Input.GetAxisRaw("Horizontal") != 0 && !holdSpecialCameraPosition)
         {
             camIndex += (int)Input.GetAxisRaw("Horizontal");
 
@@ -32,8 +34,9 @@ public class CameraManager : MonoBehaviour
 
     }
 
-    IEnumerator TurnCamera(Transform position)
+    public IEnumerator TurnCamera(Transform position)
     {
+        Debug.Log("Truning camera!");
         switch (camIndex)
         {
             case CameraPosition.ArcadeMachine:

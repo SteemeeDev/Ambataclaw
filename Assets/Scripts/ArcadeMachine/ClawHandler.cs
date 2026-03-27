@@ -65,7 +65,7 @@ public class ClawHandler : MonoBehaviour
     {
         if (grabPoint == null) return;
 
-        Collider[] hitObjects = Physics.OverlapSphere(grabPoint.position, letGoDist * 0.8f, PlushiesLayer);
+        Collider[] hitObjects = Physics.OverlapSphere(grabPoint.position, letGoDist * 0.25f, PlushiesLayer);
         Collider nearestObject = new Collider();
 
         for (int i = 0; i < hitObjects.Length; i++)

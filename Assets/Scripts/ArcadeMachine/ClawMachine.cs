@@ -24,6 +24,7 @@ public class ClawMachine : MonoBehaviour
     [SerializeField] ClawHandler clawHandler;
     [SerializeField] CameraManager camManager;
     [SerializeField] ButtonHandler buttonHandler;
+    [SerializeField] BreakerPanel breakerPanel;
 
 
     bool moveVertical;
@@ -38,6 +39,7 @@ public class ClawMachine : MonoBehaviour
     void Update()
     {
         if (camManager.camIndex != CameraManager.CameraPosition.ArcadeMachine) return;
+        else if (breakerPanel.allSwitchesOn == false) return;
 
         if (ylerp >= 0.1f) hasMovedDown = true;
 
