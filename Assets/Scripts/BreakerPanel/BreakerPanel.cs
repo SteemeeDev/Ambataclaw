@@ -67,7 +67,7 @@ public class BreakerPanel : MonoBehaviour
         {
             foreach (LightFlicker light in affectedLights)
             {
-                light.StartCoroutine(light.IEFlickerLight(Random.Range(1, 4), !allSwitchesOn));
+                light.StartCoroutine(light.IEFlickerLight(Random.Range(2, 5), !allSwitchesOn));
             }
         }
 

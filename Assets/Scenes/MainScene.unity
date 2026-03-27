@@ -22690,8 +22690,8 @@ MonoBehaviour:
   - {fileID: 297127091}
   - {fileID: 264268871}
   - {fileID: 1202191638}
-  minTimeToGoOut: 10
-  maxTimeToGoOut: 10
+  minTimeToGoOut: 60
+  maxTimeToGoOut: 180
   allSwitchesOn: 1
 --- !u!1 &1787063648 stripped
 GameObject:
