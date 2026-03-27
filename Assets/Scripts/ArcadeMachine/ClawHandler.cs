@@ -15,7 +15,7 @@ public class ClawHandler : MonoBehaviour
     [SerializeField] float closeTime = 0.3f;
     [SerializeField] float letGoDist = 0.3f;
 
-    [SerializeField] LayerMask PlushiesLayer;
+    [SerializeField] LayerMask plushiesLayer;
 
     public Collider HeldItem;
 
@@ -65,7 +65,7 @@ public class ClawHandler : MonoBehaviour
     {
         if (grabPoint == null) return;
 
-        Collider[] hitObjects = Physics.OverlapSphere(grabPoint.position, letGoDist * 0.25f, PlushiesLayer);
+        Collider[] hitObjects = Physics.OverlapSphere(grabPoint.position, letGoDist * 0.25f, plushiesLayer);
         Collider nearestObject = new Collider();
 
         for (int i = 0; i < hitObjects.Length; i++)
@@ -76,7 +76,10 @@ public class ClawHandler : MonoBehaviour
                 nearestObject = hitObject;  
         }
         HeldItem = nearestObject;
-        if (HeldItem != null) HeldItem.transform.position = grabPoint.position;
+        if (HeldItem != null)
+        {
+            HeldItem.transform.position = grabPoint.position;
+        }
     }
 
     public IEnumerator IEcloseClaw()
@@ -123,7 +126,7 @@ public class ClawHandler : MonoBehaviour
 
         if (HeldItem != null)
         {
-            HeldItem.GetComponent<Rigidbody>().isKinematic = false; 
+            HeldItem.GetComponent<Rigidbody>().isKinematic = false;
             HeldItem = null;
         }
     }

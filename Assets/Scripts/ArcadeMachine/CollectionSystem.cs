@@ -6,6 +6,7 @@ using UnityEngine;
 public class CollectionSystem : MonoBehaviour
 {
     [SerializeField] GameObject[] ShelfPlushies;
+    [SerializeField] AudioSource audioSource;
     List<PlushieType> collectedPlushies = new List<PlushieType>();
 
     // This needs to be in the order they show up on the shelf
@@ -25,6 +26,7 @@ public class CollectionSystem : MonoBehaviour
             bool alreadyCollected = collectedPlushies.Contains(plushie.plushieType);
             if (!alreadyCollected)
             {
+                audioSource.Play();
                 collectedPlushies.Add(plushie.plushieType);
                 UpdateShelf();
             }
