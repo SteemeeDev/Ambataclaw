@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 700641800158788549}
   serializedVersion: 2
   m_LocalRotation: {x: -6.123234e-17, y: 1, z: 6.123234e-17, w: -3.7493994e-33}
-  m_LocalPosition: {x: -0, y: 0.65809906, z: 0}
+  m_LocalPosition: {x: 0, y: 0.286, z: 0}
   m_LocalScale: {x: 0.22839718, y: 0.22839718, z: 0.22839718}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 2926612078716735032}
   serializedVersion: 2
   m_LocalRotation: {x: -6.123234e-17, y: 1, z: 6.123234e-17, w: -3.7493994e-33}
-  m_LocalPosition: {x: 0.00029271096, y: 0.19833425, z: 0.21553047}
+  m_LocalPosition: {x: 0, y: -0.174, z: 0.216}
   m_LocalScale: {x: 0.030076422, y: 0.06738525, z: 0.06738525}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -193,7 +193,7 @@ Transform:
   m_GameObject: {fileID: 5487431253221949656}
   serializedVersion: 2
   m_LocalRotation: {x: -6.123234e-17, y: 1, z: 6.123234e-17, w: -3.7493994e-33}
-  m_LocalPosition: {x: -0.1768769, y: 0.83601063, z: 0.047896966}
+  m_LocalPosition: {x: -0.177, y: 0.464, z: 0.048}
   m_LocalScale: {x: 0.07084489, y: 0.07084489, z: 0.07084489}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -276,7 +276,7 @@ Transform:
   m_GameObject: {fileID: 6107628074098298751}
   serializedVersion: 2
   m_LocalRotation: {x: 0.042922698, y: 0.95646816, z: -0.22081813, w: 0.1859186}
-  m_LocalPosition: {x: -0.10853697, y: 0.6646965, z: 0.18670343}
+  m_LocalPosition: {x: -0.109, y: 0.293, z: 0.187}
   m_LocalScale: {x: 0.013892496, y: 0.031125696, z: 0.031125695}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -359,7 +359,7 @@ Transform:
   m_GameObject: {fileID: 6354462947123671044}
   serializedVersion: 2
   m_LocalRotation: {x: -6.123234e-17, y: 1, z: 6.123234e-17, w: -3.7493994e-33}
-  m_LocalPosition: {x: -0, y: 0.6077703, z: 0.20177047}
+  m_LocalPosition: {x: -0, y: 0.236, z: 0.202}
   m_LocalScale: {x: 0.03679841, y: 0.03679841, z: 0.015337311}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -426,9 +426,10 @@ GameObject:
   - component: {fileID: 9099407159373920601}
   - component: {fileID: 7370093245445805810}
   - component: {fileID: 1236896687157581665}
+  - component: {fileID: 2773061047433324369}
   m_Layer: 9
   m_Name: horror spil bamse 2 3d
-  m_TagString: Untagged
+  m_TagString: Plushie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -441,7 +442,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8434193397007295459}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0074064583, y: -0.2528031, z: -0.0019352965, w: 0.96748745}
+  m_LocalRotation: {x: 0.007405407, y: -0.2528063, z: -0.0019341424, w: 0.96748674}
   m_LocalPosition: {x: -0.44900012, y: 1.3287146, z: -0.74100125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -452,7 +453,7 @@ Transform:
   - {fileID: 5814442906754566868}
   - {fileID: 4307298230068766308}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0.765, y: 60.709, z: -0.429}
+  m_LocalEulerAnglesHint: {x: 0.765, y: -29.291, z: -0.429}
 --- !u!136 &7370093245445805810
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -475,7 +476,7 @@ CapsuleCollider:
   m_Radius: 0.3
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0.4, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1236896687157581665
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -503,3 +504,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2773061047433324369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8434193397007295459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6af1603e7a18d942a062735f9099f33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plushieType: 1

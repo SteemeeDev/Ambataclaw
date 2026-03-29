@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 53337910459145865}
   - component: {fileID: 3492025182130692016}
   - component: {fileID: 4030362195047220439}
+  - component: {fileID: 5362701394120687448}
   m_Layer: 9
-  m_Name: SkildpadeBamse (2)
-  m_TagString: Untagged
+  m_Name: SkildpadeBamse
+  m_TagString: Plushie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 862067833822692403}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0074064583, y: -0.2528031, z: -0.0019352965, w: 0.96748745}
+  m_LocalRotation: {x: 0.007405407, y: -0.2528063, z: -0.0019341424, w: 0.96748674}
   m_LocalPosition: {x: 0.98000014, y: 1.3287146, z: -0.030002475}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -36,7 +37,7 @@ Transform:
   - {fileID: 5323964200364407131}
   - {fileID: 4391997949715305491}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0.765, y: 60.709, z: -0.429}
+  m_LocalEulerAnglesHint: {x: 0.765, y: -29.291, z: -0.429}
 --- !u!136 &3492025182130692016
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -87,6 +88,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5362701394120687448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862067833822692403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6af1603e7a18d942a062735f9099f33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plushieType: 2
 --- !u!1 &917507808004786950
 GameObject:
   m_ObjectHideFlags: 0

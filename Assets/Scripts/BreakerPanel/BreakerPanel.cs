@@ -69,6 +69,7 @@ public class BreakerPanel : MonoBehaviour
             {
                 light.StartCoroutine(light.IEFlickerLight(Random.Range(2, 5), !allSwitchesOn));
             }
+            clawMachine.StartCoroutine(clawMachine.IEVolumeFade(allSwitchesOn ? 1f : 0f, 2f));
         }
 
         // UI and camera management

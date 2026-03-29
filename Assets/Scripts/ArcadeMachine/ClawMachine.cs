@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class ClawMachine : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class ClawMachine : MonoBehaviour
     [SerializeField] ButtonHandler buttonHandler;
     [SerializeField] BreakerPanel breakerPanel;
 
+    [SerializeField] AudioSource ambience;
+
 
     bool moveVertical;
     bool hasMovedDown;
@@ -39,7 +42,10 @@ public class ClawMachine : MonoBehaviour
     void Update()
     {
         if (camManager.camIndex != CameraManager.CameraPosition.ArcadeMachine) return;
-        else if (breakerPanel.allSwitchesOn == false) return;
+        if (breakerPanel.allSwitchesOn == false)
+        {
+            return;
+        }
 
         if (ylerp >= 0.1f) hasMovedDown = true;
 
@@ -106,5 +112,22 @@ public class ClawMachine : MonoBehaviour
             Mathf.Lerp(clawBoundY1.position.y, clawBoundY2.position.y, ylerp),
             Mathf.Lerp(clawBound1.position.z, clawBound2.position.z, zlerp)
         );
+    }
+
+    public IEnumerator IEVolumeFade(float targetVolume, float duration)
+    {
+        float startVolume = ambience.volume;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            ambience.volume = Mathf.Lerp(startVolume, targetVolume, elapsed / duration);
+            ambience.pitch = Mathf.Lerp(startVolume, targetVolume, elapsed / duration); // Optional: also lower the pitch for a more dramatic effect
+            yield return null;
+        }
+
+        ambience.volume = targetVolume;
+        ambience.pitch = targetVolume;
     }
 }

@@ -17,7 +17,8 @@ public class ClawHandler : MonoBehaviour
 
     [SerializeField] LayerMask plushiesLayer;
 
-    public Collider HeldItem;
+    public Collider heldItem;
+    private Rigidbody heldItemRB;
 
     public bool clawOpen;
     public bool clawIsAnimating;
@@ -34,19 +35,19 @@ public class ClawHandler : MonoBehaviour
     float distToPlush;
     private void FixedUpdate()
     {
-        if (HeldItem != null)
+        if (heldItem != null)
         {
-            distToPlush = Vector3.Distance(grabPoint.position, HeldItem.transform.position);
+            distToPlush = Vector3.Distance(grabPoint.position, heldItem.transform.position);
 
             if (distToPlush <= letGoDist)
             {
-                HeldItem.transform.position = Vector3.MoveTowards(HeldItem.transform.position, grabPoint.position, grabForce * Time.fixedDeltaTime);
-                HeldItem.GetComponent<Rigidbody>().isKinematic = true;
+                heldItemRB.isKinematic = true;
+                heldItemRB.MovePosition(Vector3.MoveTowards(heldItem.transform.position, grabPoint.position, grabForce * Time.fixedDeltaTime));
             }
             else
             {
-                HeldItem.GetComponent<Rigidbody>().isKinematic = false;
-                HeldItem = null;
+                heldItemRB.isKinematic = false;
+                heldItem = null;
             }
         }
     }
@@ -65,7 +66,7 @@ public class ClawHandler : MonoBehaviour
     {
         if (grabPoint == null) return;
 
-        Collider[] hitObjects = Physics.OverlapSphere(grabPoint.position, letGoDist * 0.25f, plushiesLayer);
+        Collider[] hitObjects = Physics.OverlapSphere(grabPoint.position, letGoDist*0.75f, plushiesLayer);
         Collider nearestObject = new Collider();
 
         for (int i = 0; i < hitObjects.Length; i++)
@@ -75,10 +76,11 @@ public class ClawHandler : MonoBehaviour
             else if (Vector3.Distance(grabPoint.position, hitObject.transform.position) < Vector3.Distance(grabPoint.position, nearestObject.transform.position))
                 nearestObject = hitObject;  
         }
-        HeldItem = nearestObject;
-        if (HeldItem != null)
+        heldItem = nearestObject;
+        if (heldItem != null)
         {
-            HeldItem.transform.position = grabPoint.position;
+            heldItemRB = heldItem.GetComponent<Rigidbody>();
+            heldItem.transform.position = grabPoint.position;
         }
     }
 
@@ -124,10 +126,10 @@ public class ClawHandler : MonoBehaviour
 
         clawIsAnimating = false;
 
-        if (HeldItem != null)
+        if (heldItem != null)
         {
-            HeldItem.GetComponent<Rigidbody>().isKinematic = false;
-            HeldItem = null;
+            heldItemRB.isKinematic = false;
+            heldItem = null;
         }
     }
 }

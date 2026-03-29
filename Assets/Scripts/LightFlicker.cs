@@ -5,6 +5,7 @@ using UnityEngine;
 public class LightFlicker : MonoBehaviour
 {
     public Light lightSource;
+    [SerializeField] AudioSource flickerSound;
     [SerializeField] float minTimeToFlicker = 10f;
     [SerializeField] float maxTimeToFlicker = 60f;
 
@@ -34,8 +35,13 @@ public class LightFlicker : MonoBehaviour
 
     public IEnumerator IEFlickerLight(int flickerAmount, bool turnOff)
     {
+        yield return new WaitForSeconds(Random.Range(0.01f, 0.8f));
         for (int i = 0; i < flickerAmount; i++)
         {
+            if (flickerSound != null)
+            {
+                flickerSound.Play();
+            }
             lightSource.enabled = false;
             yield return new WaitForSeconds(0.1f);
             lightSource.enabled = true;

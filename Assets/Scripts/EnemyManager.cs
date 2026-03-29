@@ -4,8 +4,7 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] Transform[] travelPoints;
-    [SerializeField] Renderer enemyRenderer;
-    [SerializeField] CameraManager camManager;
+    [SerializeField] GameObject enemyRenderer;
     [SerializeField] float maxTravelSpeed = 1f;
     float travelSpeed;
 
@@ -22,18 +21,15 @@ public class EnemyManager : MonoBehaviour
         transform.position = Vector3.Lerp(travelPoints[0].position, travelPoints[1].position, travelPercentage / 100f);
     }
 
-    private IEnumerator OnBecameVisible()
+    // Triggered by CameraManager.cs
+    public IEnumerator EnemySpotted()
     {
-        enemyRenderer.enabled = true;
+        enemyRenderer.SetActive(true);
         travelSpeed = 0;
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
-        enemyRenderer.enabled = false;
-    }
-
-    private void OnBecameInvisible()
-    {
+        enemyRenderer.SetActive(false);
         travelPercentage *= 0.4f;
         travelSpeed = maxTravelSpeed;
     }

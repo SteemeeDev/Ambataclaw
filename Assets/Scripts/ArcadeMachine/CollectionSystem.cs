@@ -14,7 +14,8 @@ public class CollectionSystem : MonoBehaviour
     {
         Kanin,
         Bjørn,
-        Skildpadde
+        Skildpadde,
+        Key
     }
 
 
