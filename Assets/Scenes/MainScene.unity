@@ -965,17 +965,17 @@ PrefabInstance:
     - target: {fileID: 9099407159373920601, guid: ce3c87523600f3c45851c6ba36069e07,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.006
+      value: 0.828
       objectReference: {fileID: 0}
     - target: {fileID: 9099407159373920601, guid: ce3c87523600f3c45851c6ba36069e07,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.696
+      value: 1.771
       objectReference: {fileID: 0}
     - target: {fileID: 9099407159373920601, guid: ce3c87523600f3c45851c6ba36069e07,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.511
+      value: -0.503
       objectReference: {fileID: 0}
     - target: {fileID: 9099407159373920601, guid: ce3c87523600f3c45851c6ba36069e07,
         type: 3}
@@ -1464,7 +1464,7 @@ Light:
   m_Intensity: 0.64
   m_Range: 4.605389
   m_SpotAngle: 51.400528
-  m_InnerSpotAngle: 43.593475
+  m_InnerSpotAngle: 29.867083
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -2846,17 +2846,17 @@ PrefabInstance:
     - target: {fileID: 4414957623469053325, guid: 62afafce1aabac348b819a9988c4cefd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.175
+      value: 0.069
       objectReference: {fileID: 0}
     - target: {fileID: 4414957623469053325, guid: 62afafce1aabac348b819a9988c4cefd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.918
+      value: 1.516
       objectReference: {fileID: 0}
     - target: {fileID: 4414957623469053325, guid: 62afafce1aabac348b819a9988c4cefd,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.107
+      value: -0.864
       objectReference: {fileID: 0}
     - target: {fileID: 4414957623469053325, guid: 62afafce1aabac348b819a9988c4cefd,
         type: 3}
@@ -11781,7 +11781,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1847
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -14881,6 +14881,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: a30fd180c0ec59942ac70e4acf064179, type: 2}
+    - target: {fileID: -988543154735527833, guid: b84db1c093cdb0c4a8874256d1ccbba4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6206891
+      objectReference: {fileID: 0}
+    - target: {fileID: -988543154735527833, guid: b84db1c093cdb0c4a8874256d1ccbba4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.3886
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b84db1c093cdb0c4a8874256d1ccbba4,
         type: 3}
       propertyPath: m_Name
@@ -15093,12 +15103,12 @@ PrefabInstance:
     - target: {fileID: 53337910459145865, guid: 2efd1762cab2f8f4fbe1b98362123b45,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.172
+      value: 2.379
       objectReference: {fileID: 0}
     - target: {fileID: 53337910459145865, guid: 2efd1762cab2f8f4fbe1b98362123b45,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.7
+      value: -0.785
       objectReference: {fileID: 0}
     - target: {fileID: 53337910459145865, guid: 2efd1762cab2f8f4fbe1b98362123b45,
         type: 3}
@@ -24671,6 +24681,90 @@ Transform:
   m_Children: []
   m_Father: {fileID: 603101151}
   m_LocalEulerAnglesHint: {x: 4.426, y: 158.947, z: 0.426}
+--- !u!1 &2018336973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2018336975}
+  - component: {fileID: 2018336974}
+  m_Layer: 0
+  m_Name: sticker-warning-danger-electrical-lightning-logo-symbol-icon-png
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &2018336974
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018336973}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 29c4f09c4308a0343980550acf07435e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.09803922}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 3.5, y: 3.5}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &2018336975
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018336973}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -40.517, y: 4.4109364, z: -1.0503}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &2032036382
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25910,3 +26004,4 @@ SceneRoots:
   - {fileID: 1053148128}
   - {fileID: 514593564}
   - {fileID: 2104825816}
+  - {fileID: 2018336975}

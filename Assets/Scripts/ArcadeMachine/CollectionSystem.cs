@@ -13,13 +13,13 @@ public class CollectionSystem : MonoBehaviour
     public enum PlushieType
     {
         Kanin,
-        Bjørn,
+        BjÃ¸rn,
         Skildpadde,
         Key
     }
 
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Plushie"))
         {
@@ -27,10 +27,10 @@ public class CollectionSystem : MonoBehaviour
             bool alreadyCollected = collectedPlushies.Contains(plushie.plushieType);
             if (!alreadyCollected)
             {
-                audioSource.Play();
                 collectedPlushies.Add(plushie.plushieType);
                 UpdateShelf();
             }
+            audioSource.Play();
             Destroy(collision.gameObject);
         }
     }

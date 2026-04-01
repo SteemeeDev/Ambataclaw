@@ -38,7 +38,7 @@ public class LightFlicker : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(0.01f, 0.8f));
         for (int i = 0; i < flickerAmount; i++)
         {
-            if (flickerSound != null)
+            if (flickerSound != null  && flickerSound.isActiveAndEnabled)
             {
                 flickerSound.Play();
             }

@@ -43,7 +43,6 @@ public class CameraManager : MonoBehaviour
 
     public IEnumerator TurnCamera(Transform position)
     {
-        Debug.Log("Truning camera!");
         switch (camIndex)
         {
             case CameraPosition.ArcadeMachine:
