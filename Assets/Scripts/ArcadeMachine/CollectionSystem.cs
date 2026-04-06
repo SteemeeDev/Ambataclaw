@@ -8,6 +8,7 @@ public class CollectionSystem : MonoBehaviour
     [SerializeField] GameObject[] ShelfPlushies;
     [SerializeField] AudioSource audioSource;
     List<PlushieType> collectedPlushies = new List<PlushieType>();
+    public int plushiesCollected = 0;
 
     // This needs to be in the order they show up on the shelf
     public enum PlushieType
@@ -32,6 +33,7 @@ public class CollectionSystem : MonoBehaviour
             }
             audioSource.Play();
             Destroy(collision.gameObject);
+            plushiesCollected++;
         }
     }
 

@@ -8,7 +8,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] float maxTravelSpeed = 1f;
     float travelSpeed;
 
-    float travelPercentage = 0f;
+    public float travelPercentage = 0f;
 
     private void Start()
     {
