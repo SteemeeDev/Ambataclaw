@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8935220756164412923}
   - component: {fileID: 5252081150384881914}
   - component: {fileID: 6953412921172291680}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hoved
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4413925970206996405}
   - component: {fileID: 6262578232447892787}
   - component: {fileID: 3391732867922692761}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: NurbsPath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 9040228538944944011}
   - component: {fileID: 284772959367926399}
   - component: {fileID: 4580866884132725760}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: "inderst \xF8re"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 5814442906754566868}
   - component: {fileID: 4628181205150519564}
   - component: {fileID: 9137296384857602123}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: NurbsPath.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 4307298230068766308}
   - component: {fileID: 5736614657226210582}
   - component: {fileID: 3431084138815564244}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: "n\xE6se"
   m_TagString: Untagged
   m_Icon: {fileID: 0}

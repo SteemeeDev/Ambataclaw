@@ -76,31 +76,38 @@ public class BreakerPanel : MonoBehaviour
         if (camManager.camIndex != CameraManager.CameraPosition.Pipe) return;
 
 
-        if (Input.GetMouseButtonDown(0) && !uiOpen)
+        if (!uiOpen)
         {
             Ray ray = camManager.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
 
 
             if (Physics.Raycast(ray, Mathf.Infinity, interactionLayer))
             {
-                camManager.holdSpecialCameraPosition = true;
-                StartCoroutine(camManager.TurnCamera(breakerBoxCameraPos));
-                breakerPanelUI.SetActive(true);
-                uiOpen = true;
-                interactionBox.enabled = false;
+                Cursor.SetCursor(null, )
+                if (Input.GetMouseButtonDown(0))
+                {
+                    camManager.holdSpecialCameraPosition = true;
+                    StartCoroutine(camManager.TurnCamera(breakerBoxCameraPos));
+                    breakerPanelUI.SetActive(true);
+                    uiOpen = true;
+                    interactionBox.enabled = false;
+                }
             }
         }
-        else if (Input.GetMouseButtonDown(0) && uiOpen)
+        else if (uiOpen)
         {
             Ray ray = camManager.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, interactionLayer))
             {
-                BreakerSwitch breakerSwitch = hit.transform.GetComponent<BreakerSwitch>();
-                if (breakerSwitch != null)
+                if (Input.GetMouseButtonDown(0))
                 {
-                    breakerSwitch.StartCoroutine(breakerSwitch.IEFlipSwitch());
+                    BreakerSwitch breakerSwitch = hit.transform.GetComponent<BreakerSwitch>();
+                    if (breakerSwitch != null)
+                    {
+                        breakerSwitch.StartCoroutine(breakerSwitch.IEFlipSwitch());
+                    }
                 }
             }
         }

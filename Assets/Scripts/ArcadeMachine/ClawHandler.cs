@@ -9,6 +9,7 @@ public class ClawHandler : MonoBehaviour
     [SerializeField] Transform ropeEndPoint;
     [SerializeField] SkinnedMeshRenderer clawRenderer;
     [SerializeField] Transform grabPoint;
+    [SerializeField] LightFlicker dropOffLight;
 
     [Header("Settings")]
     [SerializeField] float grabForce = 1f;
@@ -48,6 +49,7 @@ public class ClawHandler : MonoBehaviour
             {
                 heldItemRB.isKinematic = false;
                 heldItem = null;
+                dropOffLight.StartCoroutine(dropOffLight.IEFlickerLight(1, true));
             }
         }
     }
@@ -81,6 +83,7 @@ public class ClawHandler : MonoBehaviour
         {
             heldItemRB = heldItem.GetComponent<Rigidbody>();
             heldItem.transform.position = grabPoint.position;
+            dropOffLight.StartCoroutine(dropOffLight.IEFlickerLight(1, false));
         }
     }
 
@@ -130,6 +133,7 @@ public class ClawHandler : MonoBehaviour
         {
             heldItemRB.isKinematic = false;
             heldItem = null;
+            dropOffLight.StartCoroutine(dropOffLight.IEFlickerLight(1, true));
         }
     }
 }
