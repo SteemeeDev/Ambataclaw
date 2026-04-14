@@ -12,6 +12,7 @@ public class BreakerPanel : MonoBehaviour
     [SerializeField] ClawMachine clawMachine;
     [SerializeField] GameObject breakerPanelUI;
     [SerializeField] BreakerSwitch[] breakerSwitches;
+    [SerializeField] Texture2D HoverSprite;
 
     [Header("LIGHT SETTINGS")]
     [SerializeField] LightFlicker[] affectedLights;
@@ -83,7 +84,7 @@ public class BreakerPanel : MonoBehaviour
 
             if (Physics.Raycast(ray, Mathf.Infinity, interactionLayer))
             {
-                Cursor.SetCursor(null, )
+                Cursor.SetCursor(HoverSprite, Vector2.zero, CursorMode.Auto);
                 if (Input.GetMouseButtonDown(0))
                 {
                     camManager.holdSpecialCameraPosition = true;
@@ -92,6 +93,10 @@ public class BreakerPanel : MonoBehaviour
                     uiOpen = true;
                     interactionBox.enabled = false;
                 }
+            }
+            else
+            {
+                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
             }
         }
         else if (uiOpen)
