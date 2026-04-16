@@ -15,6 +15,7 @@ public class ClawHandler : MonoBehaviour
     [SerializeField] float grabForce = 1f;
     [SerializeField] float closeTime = 0.3f;
     [SerializeField] float letGoDist = 0.3f;
+    [SerializeField] AnimationCurve grabAnimationCurve;
 
     [SerializeField] LayerMask plushiesLayer;
 
@@ -84,6 +85,20 @@ public class ClawHandler : MonoBehaviour
             heldItemRB = heldItem.GetComponent<Rigidbody>();
             heldItem.transform.position = grabPoint.position;
             dropOffLight.StartCoroutine(dropOffLight.IEFlickerLight(1, false));
+            StartCoroutine(IESquishPlushie(heldItem.gameObject));
+        }
+    }
+
+    IEnumerator IESquishPlushie(GameObject plush)
+    {
+        Vector3 startScale = plush.transform.localScale;
+
+        float elapsed = 0f; 
+        while (elapsed < 0.75f)
+        {
+            elapsed += Time.deltaTime;
+            plush.transform.localScale = startScale * grabAnimationCurve.Evaluate(elapsed / 0.3f);
+            yield return null;
         }
     }
 

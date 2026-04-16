@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Plushie
+  - BreakerSwitch
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Plushies
   - Interactable
   - Claw
-  - 
+  - WorldSpaceUI
   - 
   - 
   - 

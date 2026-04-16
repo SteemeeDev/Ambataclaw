@@ -102,18 +102,30 @@ public class BreakerPanel : MonoBehaviour
         else if (uiOpen)
         {
             Ray ray = camManager.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+            RaycastHit hit = new RaycastHit();
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, interactionLayer))
             {
-                if (Input.GetMouseButtonDown(0))
+                if (hit.transform.gameObject.CompareTag("BreakerSwitch"))
                 {
                     BreakerSwitch breakerSwitch = hit.transform.GetComponent<BreakerSwitch>();
                     if (breakerSwitch != null)
                     {
-                        breakerSwitch.StartCoroutine(breakerSwitch.IEFlipSwitch());
+                        Cursor.SetCursor(HoverSprite, Vector2.zero, CursorMode.Auto);
+                        if (Input.GetMouseButtonDown(0))
+                        {
+                            breakerSwitch.StartCoroutine(breakerSwitch.IEFlipSwitch());
+                        }
                     }
                 }
+                else
+                {
+                    Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+                }
+            }
+            else
+            {
+                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
             }
         }
 

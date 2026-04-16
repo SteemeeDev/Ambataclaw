@@ -10,6 +10,8 @@ public class CameraManager : MonoBehaviour
     [SerializeField] ButtonHandler buttonHandler;
     [SerializeField] EnemyManager enemyManager;
 
+    [SerializeField] GameObject SettingsUI;
+
     public bool holdSpecialCameraPosition;
 
     public enum CameraPosition
@@ -37,6 +39,15 @@ public class CameraManager : MonoBehaviour
             else if ((int)camIndex < 0) camIndex = CameraPosition.Shelf;
 
             StartCoroutine(TurnCamera(cameraPositions[(int)camIndex]));
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.lockState = SettingsUI.activeSelf ? CursorLockMode.Locked : CursorLockMode.None;
+            SettingsUI.SetActive(!SettingsUI.activeSelf);
+            holdSpecialCameraPosition = !SettingsUI.activeSelf;
+
+            Time.timeScale = SettingsUI.activeSelf ? 0f : 1f;
         }
 
     }

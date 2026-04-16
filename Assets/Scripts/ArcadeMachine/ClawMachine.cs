@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class ClawMachine : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class ClawMachine : MonoBehaviour
     [SerializeField] BreakerPanel breakerPanel;
 
     [SerializeField] AudioSource ambience;
+
+    [SerializeField] Slider horizontalSensSlider;
+    [SerializeField] Slider verticalSensSlider;
 
 
     bool moveVertical;
@@ -112,6 +116,12 @@ public class ClawMachine : MonoBehaviour
             Mathf.Lerp(clawBoundY1.position.y, clawBoundY2.position.y, ylerp),
             Mathf.Lerp(clawBound1.position.z, clawBound2.position.z, zlerp)
         );
+    }
+
+    public void UpdateSensitivity()
+    {
+        clawYSensitivity = verticalSensSlider.value;
+        clawSpeed = horizontalSensSlider.value;
     }
 
     public IEnumerator IEVolumeFade(float targetVolume, float duration)

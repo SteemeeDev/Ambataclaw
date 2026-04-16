@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
@@ -10,13 +11,20 @@ public class CollectionSystem : MonoBehaviour
     List<PlushieType> collectedPlushies = new List<PlushieType>();
     public int plushiesCollected = 0;
 
+    [SerializeField] GameObject[] infoPanels;
+    Coroutine InfoPanelRoutine;
+    GameObject currentInfoPanel;
+
     // This needs to be in the order they show up on the shelf
     public enum PlushieType
     {
-        Kanin,
-        Bjørn,
-        Skildpadde,
-        Key
+        Rabbit,
+        Bear,
+        Turtle,
+        Racoon,
+        Key,
+        Fox,
+        Cat
     }
 
 
@@ -31,10 +39,30 @@ public class CollectionSystem : MonoBehaviour
                 collectedPlushies.Add(plushie.plushieType);
                 UpdateShelf();
             }
+            if (currentInfoPanel != null)
+            {
+                StopCoroutine(InfoPanelRoutine);
+                currentInfoPanel.SetActive(false);
+            }
+            InfoPanelRoutine = StartCoroutine(ShowPlushieInfo(plushie.plushieType));
+
             audioSource.Play();
             Destroy(collision.gameObject);
             plushiesCollected++;
         }
+    }
+
+    IEnumerator ShowPlushieInfo(PlushieType type)
+    {
+        currentInfoPanel = infoPanels[(int)type];
+
+        infoPanels[(int)type].SetActive(true);
+
+        yield return new WaitForSeconds(5f);
+
+        infoPanels[(int)type].SetActive(false);
+
+        currentInfoPanel = null;
     }
 
     void UpdateShelf()
