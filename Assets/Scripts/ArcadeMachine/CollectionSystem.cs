@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
@@ -8,8 +9,10 @@ public class CollectionSystem : MonoBehaviour
 {
     [SerializeField] GameObject[] ShelfPlushies;
     [SerializeField] AudioSource audioSource;
+    [SerializeField] TMP_Text plushiesCollectedCounter;
     List<PlushieType> collectedPlushies = new List<PlushieType>();
     public int plushiesCollected = 0;
+    public int winCondition;
 
     [SerializeField] GameObject[] infoPanels;
     Coroutine InfoPanelRoutine;
@@ -27,11 +30,18 @@ public class CollectionSystem : MonoBehaviour
         Cat
     }
 
+    private void Start()
+    {
+        plushiesCollectedCounter.text = plushiesCollected.ToString() + "/" + winCondition.ToString();
+    }
 
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Plushie"))
         {
+            plushiesCollected++;
+            plushiesCollectedCounter.text = plushiesCollected.ToString() + "/" + winCondition.ToString();
+
             Plushie plushie = collision.gameObject.GetComponent<Plushie>();
             bool alreadyCollected = collectedPlushies.Contains(plushie.plushieType);
             if (!alreadyCollected)
@@ -48,7 +58,8 @@ public class CollectionSystem : MonoBehaviour
 
             audioSource.Play();
             Destroy(collision.gameObject);
-            plushiesCollected++;
+
+
         }
     }
 

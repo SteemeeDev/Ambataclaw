@@ -45,7 +45,7 @@ public class CameraManager : MonoBehaviour
         {
             Cursor.lockState = SettingsUI.activeSelf ? CursorLockMode.Locked : CursorLockMode.None;
             SettingsUI.SetActive(!SettingsUI.activeSelf);
-            holdSpecialCameraPosition = !SettingsUI.activeSelf;
+            holdSpecialCameraPosition = SettingsUI.activeSelf;
 
             Time.timeScale = SettingsUI.activeSelf ? 0f : 1f;
         }
