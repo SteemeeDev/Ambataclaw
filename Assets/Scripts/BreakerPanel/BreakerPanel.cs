@@ -76,22 +76,24 @@ public class BreakerPanel : MonoBehaviour
         // UI and camera management
         if (camManager.camIndex != CameraManager.CameraPosition.Pipe) return;
 
+        Ray ray = camManager.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit = new RaycastHit();
 
         if (!uiOpen)
         {
-            Ray ray = camManager.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
-
-
-            if (Physics.Raycast(ray, Mathf.Infinity, interactionLayer))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, interactionLayer))
             {
                 Cursor.SetCursor(HoverSprite, Vector2.zero, CursorMode.Auto);
-                if (Input.GetMouseButtonDown(0))
+                if (hit.transform != null && hit.transform.gameObject.CompareTag("BreakerBox"))
                 {
-                    camManager.holdSpecialCameraPosition = true;
-                    StartCoroutine(camManager.TurnCamera(breakerBoxCameraPos));
-                    breakerPanelUI.SetActive(true);
-                    uiOpen = true;
-                    interactionBox.enabled = false;
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        camManager.holdSpecialCameraPosition = true;
+                        StartCoroutine(camManager.TurnCamera(breakerBoxCameraPos));
+                        breakerPanelUI.SetActive(true);
+                        uiOpen = true;
+                        interactionBox.enabled = false;
+                    }
                 }
             }
             else
@@ -101,17 +103,14 @@ public class BreakerPanel : MonoBehaviour
         }
         else if (uiOpen)
         {
-            Ray ray = camManager.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit = new RaycastHit();
-
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, interactionLayer))
             {
-                if (hit.transform.gameObject.CompareTag("BreakerSwitch"))
+                Cursor.SetCursor(HoverSprite, Vector2.zero, CursorMode.Auto);
+                if (hit.transform != null && hit.transform.gameObject.CompareTag("BreakerSwitch"))
                 {
                     BreakerSwitch breakerSwitch = hit.transform.GetComponent<BreakerSwitch>();
                     if (breakerSwitch != null)
                     {
-                        Cursor.SetCursor(HoverSprite, Vector2.zero, CursorMode.Auto);
                         if (Input.GetMouseButtonDown(0))
                         {
                             breakerSwitch.StartCoroutine(breakerSwitch.IEFlipSwitch());

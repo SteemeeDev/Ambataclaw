@@ -28,7 +28,8 @@ public class ClawMachine : MonoBehaviour
     [SerializeField] ButtonHandler buttonHandler;
     [SerializeField] BreakerPanel breakerPanel;
 
-    [SerializeField] AudioSource ambience;
+    [SerializeField] AudioSource audioPlayer;
+    [SerializeField] AudioSource switchAxisSound;
 
     [SerializeField] Slider horizontalSensSlider;
     [SerializeField] Slider verticalSensSlider;
@@ -63,6 +64,8 @@ public class ClawMachine : MonoBehaviour
             buttonHandler.StartCoroutine(buttonHandler.downButton.IEPressButton());
             moveVertical = false;
             hasMovedDown = false;
+            switchAxisSound.pitch = Random.Range(0.9f, 1.0f);
+            switchAxisSound.Play();
         }
 
 
@@ -126,18 +129,18 @@ public class ClawMachine : MonoBehaviour
 
     public IEnumerator IEVolumeFade(float targetVolume, float duration)
     {
-        float startVolume = ambience.volume;
+        float startVolume = audioPlayer.volume;
         float elapsed = 0f;
 
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
-            ambience.volume = Mathf.Lerp(startVolume, targetVolume, elapsed / duration);
-            ambience.pitch = Mathf.Lerp(startVolume, targetVolume, elapsed / duration); // Optional: also lower the pitch for a more dramatic effect
+            audioPlayer.volume = Mathf.Lerp(startVolume, targetVolume, elapsed / duration);
+            audioPlayer.pitch = Mathf.Lerp(startVolume, targetVolume, elapsed / duration); // Optional: also lower the pitch for a more dramatic effect
             yield return null;
         }
 
-        ambience.volume = targetVolume;
-        ambience.pitch = targetVolume;
+        audioPlayer.volume = targetVolume;
+        audioPlayer.pitch = targetVolume;
     }
 }

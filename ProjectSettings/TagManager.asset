@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Plushie
   - BreakerSwitch
+  - BreakerBox
+  - Lever
   layers:
   - Default
   - TransparentFX
