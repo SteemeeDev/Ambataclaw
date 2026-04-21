@@ -71,7 +71,7 @@ public class CameraManager : MonoBehaviour
                 break;
             case CameraPosition.Arcade:
                 Cursor.lockState = CursorLockMode.None;
-                enemyManager.StartCoroutine(enemyManager.EnemySpotted());
+                //enemyManager.StartCoroutine(enemyManager.EnemySpotted());
                 _turnTime = turnTime * 0.5f;
                 break;
             case CameraPosition.FromShelf:

@@ -8,6 +8,7 @@ TagManager:
   - BreakerSwitch
   - BreakerBox
   - Lever
+  - Enemy
   layers:
   - Default
   - TransparentFX
