@@ -72,6 +72,7 @@ AudioMixerController:
     - 415b058462aff7a40b47242635a186c6
     - 75b31d0e27868364ea89801ee04c04d6
     - bdf742deb8111114eadc24a85ca363de
+    - 30a0f0e022b2ef74bbb90c18d2c3bee1
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -89,6 +90,7 @@ AudioMixerGroupController:
   - {fileID: 1363070256916101695}
   - {fileID: 2053822145983687077}
   - {fileID: -8679097435793885823}
+  - {fileID: 8330986207769747724}
   m_Volume: 64f89efcb9835bc4a833a01b970af01e
   m_Pitch: 88fb288d7280ecc41988c9cca08936b3
   m_Send: 00000000000000000000000000000000
@@ -122,12 +124,27 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: e294703a80975c846a681667e2c675d6
   m_FloatValues:
+    5b23aa05122d6fe448854833f6f0df7e: -2.018035
     00871d27da9c8884083270ddc4a9f23f: 0
     cd8c0b1915e3885409e40eaa3c9ceaea: -11.400904
     6ab5315b2c8aa0c4897468986ad55d9b: 13.532475
     64f89efcb9835bc4a833a01b970af01e: -0.19117308
     53391b4f76d4bb84c962f345e06d8416: -6.133707
   m_TransitionOverrides: {}
+--- !u!244 &283237071064016947
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 2c69f94f42258624aba58b5f28f80604
+  m_EffectName: Attenuation
+  m_MixLevel: 1d606d95345bddc4fbfc8d89918c92af
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &1194531537313778678
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -209,6 +226,25 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: -2688949737921620387}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &8330986207769747724
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Monster
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 30a0f0e022b2ef74bbb90c18d2c3bee1
+  m_Children: []
+  m_Volume: 5b23aa05122d6fe448854833f6f0df7e
+  m_Pitch: c163b1d3e5b4e1e4795711bb939c093d
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 283237071064016947}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0

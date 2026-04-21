@@ -11,6 +11,9 @@ public class EnemyManager : MonoBehaviour
 
 
     [SerializeField] GameObject enemyRenderer;
+    [SerializeField] AudioSource audioPlayer;
+    [SerializeField] AudioClip spotSound;
+    [SerializeField] AudioClip moveSound;
 
     [SerializeField] float maxTravelSpeed = 1f;
     float travelSpeed;
@@ -55,11 +58,13 @@ public class EnemyManager : MonoBehaviour
         {
             travelStage = 2;
             transform.position = stage3Points[Random.Range(0, stage1Points.Length)].position;
+            audioPlayer.PlayOneShot(moveSound);
         }
         else if (travelPercentage > 75f && travelPercentage < 100f && travelStage != 3)
         {
             travelStage = 3;
             transform.position = stage4Points[Random.Range(0, stage1Points.Length)].position;
+            audioPlayer.PlayOneShot(moveSound);
         }
     }
     // Triggered by CameraManager.cs
@@ -72,6 +77,7 @@ public class EnemyManager : MonoBehaviour
             travelSpeed = 0;
 
             yield return new WaitForSeconds(1f);
+            audioPlayer.PlayOneShot(spotSound);
 
             enemyRenderer.SetActive(false);
             travelSpeed = maxTravelSpeed;

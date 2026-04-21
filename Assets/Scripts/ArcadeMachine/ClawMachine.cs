@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -30,6 +31,15 @@ public class ClawMachine : MonoBehaviour
 
     [SerializeField] AudioSource audioPlayer;
     [SerializeField] AudioSource switchAxisSound;
+    [SerializeField] AudioSource moveSound;
+
+    [SerializeField] AudioSource clawSounds;
+    [SerializeField] AudioClip startMoveSound;
+    [SerializeField] AudioClip endMoveSound;
+
+    float timeSinceStoppedMoving;
+    float timeSinceStartedMoving;
+    bool movingClaw;
 
     [SerializeField] Slider horizontalSensSlider;
     [SerializeField] Slider verticalSensSlider;
@@ -42,6 +52,9 @@ public class ClawMachine : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
+
+    float mouseX = 0;
+    float mouseY = 0;
 
     // Update is called once per frame
     void Update()
@@ -85,9 +98,40 @@ public class ClawMachine : MonoBehaviour
                 }
             }
         }
+        Vector2 previousMoveInput = new Vector2(mouseX, mouseY);
 
-        float mouseX = Input.GetAxisRaw("Mouse X");
-        float mouseY = Input.GetAxisRaw("Mouse Y");
+        mouseX = Input.GetAxisRaw("Mouse X");
+        mouseY = Input.GetAxisRaw("Mouse Y");
+
+        if (new Vector2(mouseX, mouseY).magnitude > 0f)
+        {
+            timeSinceStartedMoving += Time.deltaTime;
+            timeSinceStoppedMoving = 0;
+            if (timeSinceStartedMoving > 0.2f) movingClaw = true;
+        }
+        else
+        {
+            timeSinceStoppedMoving += Time.deltaTime;
+            timeSinceStartedMoving = 0;
+
+            if (timeSinceStoppedMoving > 0.2f) movingClaw = false;
+        }
+
+
+        if (movingClaw)
+        {
+            if (!moveSound.isPlaying)
+            {
+                StartCoroutine(IEVolumeFade(1f, 0.2f));
+            }
+        }
+        else
+        {
+            if (moveSound.isPlaying)
+            {
+                StartCoroutine(IEVolumeFade(0f, 0.2f));
+            }
+        }
 
         if (!moveVertical)
         {
