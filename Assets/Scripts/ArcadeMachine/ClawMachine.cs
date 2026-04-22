@@ -29,7 +29,7 @@ public class ClawMachine : MonoBehaviour
     [SerializeField] ButtonHandler buttonHandler;
     [SerializeField] BreakerPanel breakerPanel;
 
-    [SerializeField] AudioSource audioPlayer;
+    public AudioSource audioPlayer;
     [SerializeField] AudioSource switchAxisSound;
     [SerializeField] AudioSource moveSound;
 
@@ -48,6 +48,7 @@ public class ClawMachine : MonoBehaviour
     bool moveVertical;
     bool hasMovedDown;
 
+    bool fadingAudio;
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -55,6 +56,8 @@ public class ClawMachine : MonoBehaviour
 
     float mouseX = 0;
     float mouseY = 0;
+
+    Coroutine clawMoveAudioFade;
 
     // Update is called once per frame
     void Update()
@@ -120,16 +123,18 @@ public class ClawMachine : MonoBehaviour
 
         if (movingClaw)
         {
-            if (!moveSound.isPlaying)
+            if (!fadingAudio)
             {
-                StartCoroutine(IEVolumeFade(1f, 0.2f));
+                clawSounds.PlayOneShot(startMoveSound);
+                clawMoveAudioFade = StartCoroutine(IEVolumeFade(1f, 0.2f, moveSound));
             }
         }
         else
         {
-            if (moveSound.isPlaying)
+            if (fadingAudio)
             {
-                StartCoroutine(IEVolumeFade(0f, 0.2f));
+                clawMoveAudioFade = StartCoroutine(IEVolumeFade(0f, 0.2f, moveSound));
+                clawSounds.PlayOneShot(endMoveSound);
             }
         }
 
@@ -171,20 +176,26 @@ public class ClawMachine : MonoBehaviour
         clawSpeed = horizontalSensSlider.value;
     }
 
-    public IEnumerator IEVolumeFade(float targetVolume, float duration)
+
+
+    public IEnumerator IEVolumeFade(float targetVolume, float duration, AudioSource _audioSource)
     {
+        if (_audioSource == moveSound) fadingAudio = true;
+
         float startVolume = audioPlayer.volume;
         float elapsed = 0f;
 
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
-            audioPlayer.volume = Mathf.Lerp(startVolume, targetVolume, elapsed / duration);
-            audioPlayer.pitch = Mathf.Lerp(startVolume, targetVolume, elapsed / duration); // Optional: also lower the pitch for a more dramatic effect
+            _audioSource.volume = Mathf.Lerp(startVolume, targetVolume, elapsed / duration);
+            _audioSource.pitch = Mathf.Lerp(startVolume, targetVolume, elapsed / duration); // Optional: also lower the pitch for a more dramatic effect
             yield return null;
         }
 
-        audioPlayer.volume = targetVolume;
-        audioPlayer.pitch = targetVolume;
+        _audioSource.volume = targetVolume;
+        _audioSource.pitch = targetVolume;
+
+        if(_audioSource == moveSound) fadingAudio = false;
     }
 }

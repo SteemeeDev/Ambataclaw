@@ -67,6 +67,7 @@ public class CameraManager : MonoBehaviour
                 break;
             case CameraPosition.FromPipe:
                 Cursor.lockState = CursorLockMode.None;
+                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
                 _turnTime = turnTime * 0.5f;
                 break;
             case CameraPosition.Arcade:
